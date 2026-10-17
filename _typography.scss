@@ -4,15 +4,33 @@
 $font-poppins: "Poppins", sans-serif;
 
 $text-presets: (
-    1: (
+    1-mobile: (
         font-family: $font-poppins,
-        font-size: 36px,
+        font-size: 24px,
         line-height: 1.4,
         letter-spacing: 0.25px,
         font-weight: 600,
         color: var(--color-grey-500)
-        ),
-    2: (
+    ),
+        
+    1-tablet-and-desktop: (
+        font-family: $font-poppins,
+        font-size: 24px,
+        line-height: 1.4,
+        letter-spacing: 0.25px,
+        font-weight: 600,
+        color: var(--color-grey-500)
+    ),
+
+    2-mobile: (
+        font-family: $font-poppins,
+        font-size: 24px,
+        line-height: 1.4,
+        letter-spacing: 0.25px,
+        font-weight: 200,
+        color: var(--color-grey-500)
+    ),
+    2-tablet-and-desktop: (
         font-family: $font-poppins,
         font-size: 36px,
         line-height: 1.4,

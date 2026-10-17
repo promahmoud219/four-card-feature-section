@@ -38,7 +38,6 @@ main article {
   gap: 60px;
 }
 main article .title-wrapper {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,21 +49,38 @@ main article .title-wrapper {
 }
 main article span:nth-child(1) {
   font-family: "Poppins", sans-serif;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.4;
   letter-spacing: 0.25px;
   font-weight: 200;
   color: var(--color-grey-500);
-  display: block;
-  width: 100%;
 }
 main article span:nth-child(2) {
   font-family: "Poppins", sans-serif;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.4;
   letter-spacing: 0.25px;
   font-weight: 600;
   color: var(--color-grey-500);
+}
+@media (min-width: 768px) {
+  main article span:nth-child(1) {
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+    font-weight: 200;
+    color: var(--color-grey-500);
+    display: block;
+  }
+  main article span:nth-child(2) {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+    font-weight: 600;
+    color: var(--color-grey-500);
+  }
 }
 main article p {
   font-family: "Poppins", sans-serif;
