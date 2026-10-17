@@ -35,7 +35,15 @@ main article {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 60px;
+}
+@media (min-width: 768px) {
+  main article {
+    width: min(100% - 3rem, 660px);
+  }
 }
 main article .title-wrapper {
   display: -webkit-box;
@@ -46,6 +54,12 @@ main article .title-wrapper {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--spacing-200);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  main article .title-wrapper {
+    width: 540px;
+  }
 }
 main article span:nth-child(1) {
   font-family: "Poppins", sans-serif;
@@ -75,7 +89,7 @@ main article span:nth-child(2) {
   }
   main article span:nth-child(2) {
     font-family: "Poppins", sans-serif;
-    font-size: 24px;
+    font-size: 36px;
     line-height: 1.4;
     letter-spacing: 0.25px;
     font-weight: 600;
@@ -157,4 +171,49 @@ main article .card-wrapper .card:nth-child(3) {
 }
 main article .card-wrapper .card:nth-child(4) {
   border-top: 5px solid var(--color-blue);
+}
+@media (min-width: 768px) {
+  main article .card-wrapper {
+    display: -ms-grid;
+    display: grid;
+    gap: var(--spacing-400);
+    -ms-grid-columns: 1fr var(--spacing-400) 1fr var(--spacing-400) 1fr var(--spacing-400) 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: auto var(--spacing-400) auto var(--spacing-400) auto;
+        grid-template-areas: ". team-builder team-builder ." "supervisor supervisor karma karma" ". calculator calculator .";
+  }
+  main article .card-wrapper .card:nth-child(1) {
+    grid-area: supervisor;
+  }
+  main article .card-wrapper .card:nth-child(2) {
+    grid-area: team-builder;
+  }
+  main article .card-wrapper .card:nth-child(3) {
+    grid-area: karma;
+  }
+  main article .card-wrapper .card:nth-child(4) {
+    grid-area: calculator;
+  }
+}
+@media (min-width: 768px) {
+  main article .card-wrapper .card:nth-child(1) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+  main article .card-wrapper .card:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+  }
+  main article .card-wrapper .card:nth-child(3) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 3;
+  }
+  main article .card-wrapper .card:nth-child(4) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+  }
 }
