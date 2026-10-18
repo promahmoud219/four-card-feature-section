@@ -3,10 +3,7 @@
 @use "spacing" as *;
 @use "dimensions" as *;
 @use "breakpoints" as *;
-
-  
-
-
+ 
 *{
     padding: 0;
     margin: 0;
@@ -27,43 +24,59 @@ main{
             width: min(calc(100% - 3rem), $card-tablet-width);
         }
 
-        .title-wrapper{ 
+        header{ 
             display: flex;    
             flex-direction: column;
             gap: var(--spacing-200);
             text-align: center;
-        }
 
-        span:nth-child(1){
-            @include text-preset(2-mobile);
-            display: block;
-        }
-        
-        span:nth-child(2){
-            @include text-preset(1-mobile);
-        }
-        
-        @media (min-width: $breakpoint-tablet) {
-            
-            span:nth-child(1){
-                @include text-preset(2-tablet-and-desktop);
+            span:first-child{
+                @include text-preset(2-mobile);
                 display: block;
             }
-            span:nth-child(2){
-                @include text-preset(1-tablet-and-desktop);
-            }
-        }
 
-        p{
-            @include text-preset(4);
-        }
+            span:last-child{
+                @include text-preset(1-mobile);
+            }
+
+            .header__body{
+                @include text-preset(4);
+            }
+
+            @media (min-width: $breakpoint-tablet){
+                width: 540px;
+                span:nth-child(1){
+                    @include text-preset(2-tablet-and-desktop);
+                }
+                span:nth-child(2){
+                    @include text-preset(1-tablet-and-desktop);
+                }
+            }   
+             
+        } 
         
-        .card-wrapper{
+        .cards-wrapper{
             display: flex;
             flex-direction: column;
             gap: var(--spacing-400);
+              
+            @media (min-width: $breakpoint-tablet) {
+                display: grid;  
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-areas: 
+                ". team-builder team-builder ."
+                "supervisor supervisor karma karma"
+                ". calculator calculator ."; 
+            }
             
-            
+            @media (min-width: $breakpoint-desktop) {  
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: 
+                ". team-builder ."
+                "supervisor team-builder calculator"
+                "supervisor karma calculator"
+                ". karma .";
+            }
 
             .card{
                 display: flex;
@@ -71,74 +84,49 @@ main{
                 gap: var(--spacing-400);
                 padding: var(--spacing-400); 
                 border-radius: var(--spacing-100);
-                box-shadow: 0px 10px 20px 3px rgba(151, 223, 235, 0.137);
-                // flex-basis == height, cause flex-direction here is: column
-                min-height: 250px;
-                min-width: 314px;
-                
-                .title{
+                box-shadow: 0px 10px 20px 3px rgba(151, 223, 235, 0.137); 
+                height: 250px;
+                width: 314px;
+            
+                @media (min-width: $breakpoint-desktop) {
+                    width: 350px;
+                }
+            
+                &--supervisor{
+                    border-top: 5px solid var(--color-cyan);
+                    grid-area: supervisor;
+                }
+                &--team-builder{
+                    border-top: 5px solid var(--color-red);
+                    grid-area: team-builder;
+                }
+                &--karma{
+                    border-top: 5px solid var(--color-orange);
+                    grid-area: karma;
+                }
+                &--calculator{
+                    border-top: 5px solid var(--color-blue);
+                    grid-area: calculator;
+                }
+            
+                .card__header{
                     display: flex;
                     flex-direction: column;
                     gap: 6px;
-
-                    h2{
+            
+                    .card__title{
                         @include text-preset(3);
                     }
-                    p{
+                    .card__body{
                         @include text-preset(5);
                     }
                 }
-
-                img{
+            
+                .card__img{
                     align-self: flex-end;
                     width: 64px;
                     height: 64px;
-                }
-
-                
-            }
-            .card:nth-child(1){
-                border-top: 5px solid var(--color-cyan);
-                grid-area: supervisor;
-            }
-            .card:nth-child(2){
-                border-top: 5px solid var(--color-red);
-                grid-area: team-builder;
-            }
-            .card:nth-child(3){
-                border-top: 5px solid var(--color-orange);
-                grid-area: karma;
-            }
-            .card:nth-child(4){
-                border-top: 5px solid var(--color-blue);
-                grid-area: calculator;
-            }
-            
-            @media (min-width: $breakpoint-tablet) {
-                display: grid; 
-                gap: var(--spacing-400);
-                grid-template-columns: repeat(4, 1fr);
-                grid-template-areas: 
-                ". team-builder team-builder ."
-                "supervisor supervisor karma karma"
-                ". calculator calculator ."; 
- 
-                
-            }
-            
-            @media (min-width: $breakpoint-desktop) {
-                display: grid; 
-                gap: var(--spacing-400);
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-areas: 
-                ". team-builder ."
-                "supervisor team-builder calculator"
-                "supervisor karma calculator"
-                ". karma .";
-
-                .card{ 
-                    min-width: 350px;
-                }
+                } 
             }
         }
     }
@@ -149,4 +137,5 @@ main{
 // grid-area: 2/1/span 1/span 2;
 // grid-area: 1/2/span 1/span 2;
 // grid-area: 2/3/span 1/span 2;
+
 // grid-area: 3/2/span 1/span 2;

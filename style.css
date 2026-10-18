@@ -45,7 +45,7 @@ main article {
     width: min(100% - 3rem, 660px);
   }
 }
-main article .title-wrapper {
+main article header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -56,7 +56,7 @@ main article .title-wrapper {
   gap: var(--spacing-200);
   text-align: center;
 }
-main article span:nth-child(1) {
+main article header span:first-child {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   line-height: 1.4;
@@ -65,7 +65,7 @@ main article span:nth-child(1) {
   color: var(--color-grey-500);
   display: block;
 }
-main article span:nth-child(2) {
+main article header span:last-child {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   line-height: 1.4;
@@ -73,17 +73,27 @@ main article span:nth-child(2) {
   font-weight: 600;
   color: var(--color-grey-500);
 }
+main article header .header__body {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.938rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--color-grey-400);
+}
 @media (min-width: 768px) {
-  main article span:nth-child(1) {
+  main article header {
+    width: 540px;
+  }
+  main article header span:nth-child(1) {
     font-family: "Poppins", sans-serif;
     font-size: 2.25rem;
     line-height: 1.4;
     letter-spacing: 0.25px;
     font-weight: 200;
     color: var(--color-grey-500);
-    display: block;
   }
-  main article span:nth-child(2) {
+  main article header span:nth-child(2) {
     font-family: "Poppins", sans-serif;
     font-size: 2.25rem;
     line-height: 1.4;
@@ -92,15 +102,7 @@ main article span:nth-child(2) {
     color: var(--color-grey-500);
   }
 }
-main article p {
-  font-family: "Poppins", sans-serif;
-  font-size: 0.938rem;
-  line-height: 1.4;
-  letter-spacing: 0;
-  font-weight: 400;
-  color: var(--color-grey-400);
-}
-main article .card-wrapper {
+main article .cards-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -110,7 +112,23 @@ main article .card-wrapper {
           flex-direction: column;
   gap: var(--spacing-400);
 }
-main article .card-wrapper .card {
+@media (min-width: 768px) {
+  main article .cards-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: ". team-builder team-builder ." "supervisor supervisor karma karma" ". calculator calculator .";
+  }
+}
+@media (min-width: 1440px) {
+  main article .cards-wrapper {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: ". team-builder ." "supervisor team-builder calculator" "supervisor karma calculator" ". karma .";
+  }
+}
+main article .cards-wrapper .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,10 +141,79 @@ main article .card-wrapper .card {
   border-radius: var(--spacing-100);
   -webkit-box-shadow: 0px 10px 20px 3px rgba(151, 223, 235, 0.137);
           box-shadow: 0px 10px 20px 3px rgba(151, 223, 235, 0.137);
-  min-height: 250px;
-  min-width: 314px;
+  height: 250px;
+  width: 314px;
 }
-main article .card-wrapper .card .title {
+@media (min-width: 1440px) {
+  main article .cards-wrapper .card {
+    width: 350px;
+  }
+}
+main article .cards-wrapper .card--supervisor {
+  border-top: 5px solid var(--color-cyan);
+  grid-area: supervisor;
+}
+main article .cards-wrapper .card--team-builder {
+  border-top: 5px solid var(--color-red);
+  grid-area: team-builder;
+}
+main article .cards-wrapper .card--karma {
+  border-top: 5px solid var(--color-orange);
+  grid-area: karma;
+}
+main article .cards-wrapper .card--calculator {
+  border-top: 5px solid var(--color-blue);
+  grid-area: calculator;
+}
+@media (min-width: 768px) {
+  main article .cards-wrapper .card--supervisor {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  main article .cards-wrapper .card--team-builder {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+  }
+  main article .cards-wrapper .card--karma {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+  }
+  main article .cards-wrapper .card--calculator {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+  }
+}
+@media (min-width: 1440px) {
+  main article .cards-wrapper .card--supervisor {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  main article .cards-wrapper .card--team-builder {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+  main article .cards-wrapper .card--karma {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+  main article .cards-wrapper .card--calculator {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+}
+main article .cards-wrapper .card .card__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,7 +223,7 @@ main article .card-wrapper .card .title {
           flex-direction: column;
   gap: 6px;
 }
-main article .card-wrapper .card .title h2 {
+main article .cards-wrapper .card .card__header .card__title {
   font-family: "Poppins", sans-serif;
   font-size: 1.25rem;
   line-height: 1.35;
@@ -144,7 +231,7 @@ main article .card-wrapper .card .title h2 {
   font-weight: 600;
   color: var(--color-grey-500);
 }
-main article .card-wrapper .card .title p {
+main article .cards-wrapper .card .card__header .card__body {
   font-family: "Poppins", sans-serif;
   font-size: 0.813rem;
   line-height: 1.6;
@@ -152,94 +239,9 @@ main article .card-wrapper .card .title p {
   font-weight: 400;
   color: var(--color-grey-500);
 }
-main article .card-wrapper .card img {
+main article .cards-wrapper .card .card__img {
   -ms-flex-item-align: end;
       align-self: flex-end;
   width: 64px;
   height: 64px;
-}
-main article .card-wrapper .card:nth-child(1) {
-  border-top: 5px solid var(--color-cyan);
-  grid-area: supervisor;
-}
-main article .card-wrapper .card:nth-child(2) {
-  border-top: 5px solid var(--color-red);
-  grid-area: team-builder;
-}
-main article .card-wrapper .card:nth-child(3) {
-  border-top: 5px solid var(--color-orange);
-  grid-area: karma;
-}
-main article .card-wrapper .card:nth-child(4) {
-  border-top: 5px solid var(--color-blue);
-  grid-area: calculator;
-}
-@media (min-width: 768px) {
-  main article .card-wrapper {
-    display: -ms-grid;
-    display: grid;
-    gap: var(--spacing-400);
-    -ms-grid-columns: 1fr var(--spacing-400) 1fr var(--spacing-400) 1fr var(--spacing-400) 1fr;
-    grid-template-columns: repeat(4, 1fr);
-    -ms-grid-rows: auto var(--spacing-400) auto var(--spacing-400) auto;
-        grid-template-areas: ". team-builder team-builder ." "supervisor supervisor karma karma" ". calculator calculator .";
-  }
-  main article .card-wrapper .card:nth-child(1) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 3;
-  }
-  main article .card-wrapper .card:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 3;
-  }
-  main article .card-wrapper .card:nth-child(3) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 5;
-    -ms-grid-column-span: 3;
-  }
-  main article .card-wrapper .card:nth-child(4) {
-    -ms-grid-row: 5;
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 3;
-  }
-}
-@media (min-width: 1440px) {
-  main article .card-wrapper {
-    display: -ms-grid;
-    display: grid;
-    gap: var(--spacing-400);
-    -ms-grid-columns: 1fr var(--spacing-400) 1fr var(--spacing-400) 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    -ms-grid-rows: auto var(--spacing-400) auto var(--spacing-400) auto var(--spacing-400) auto;
-        grid-template-areas: ". team-builder ." "supervisor team-builder calculator" "supervisor karma calculator" ". karma .";
-  }
-  main article .card-wrapper .card {
-    min-width: 350px;
-  }
-  main article .card-wrapper .card:nth-child(1) {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  main article .card-wrapper .card:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 3;
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 1;
-  }
-  main article .card-wrapper .card:nth-child(3) {
-    -ms-grid-row: 5;
-    -ms-grid-row-span: 3;
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 1;
-  }
-  main article .card-wrapper .card:nth-child(4) {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 3;
-    -ms-grid-column: 5;
-    -ms-grid-column-span: 1;
-  }
 }
