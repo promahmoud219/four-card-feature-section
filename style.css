@@ -56,11 +56,6 @@ main article .title-wrapper {
   gap: var(--spacing-200);
   text-align: center;
 }
-@media (min-width: 768px) {
-  main article .title-wrapper {
-    width: 540px;
-  }
-}
 main article span:nth-child(1) {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
@@ -128,6 +123,8 @@ main article .card-wrapper .card {
   border-radius: var(--spacing-100);
   -webkit-box-shadow: 0px 10px 20px 3px rgba(151, 223, 235, 0.137);
           box-shadow: 0px 10px 20px 3px rgba(151, 223, 235, 0.137);
+  min-height: 250px;
+  min-width: 314px;
 }
 main article .card-wrapper .card .title {
   display: -webkit-box;
@@ -163,15 +160,19 @@ main article .card-wrapper .card img {
 }
 main article .card-wrapper .card:nth-child(1) {
   border-top: 5px solid var(--color-cyan);
+  grid-area: supervisor;
 }
 main article .card-wrapper .card:nth-child(2) {
   border-top: 5px solid var(--color-red);
+  grid-area: team-builder;
 }
 main article .card-wrapper .card:nth-child(3) {
   border-top: 5px solid var(--color-orange);
+  grid-area: karma;
 }
 main article .card-wrapper .card:nth-child(4) {
   border-top: 5px solid var(--color-blue);
+  grid-area: calculator;
 }
 @media (min-width: 768px) {
   main article .card-wrapper {
@@ -183,20 +184,6 @@ main article .card-wrapper .card:nth-child(4) {
     -ms-grid-rows: auto var(--spacing-400) auto var(--spacing-400) auto;
         grid-template-areas: ". team-builder team-builder ." "supervisor supervisor karma karma" ". calculator calculator .";
   }
-  main article .card-wrapper .card:nth-child(1) {
-    grid-area: supervisor;
-  }
-  main article .card-wrapper .card:nth-child(2) {
-    grid-area: team-builder;
-  }
-  main article .card-wrapper .card:nth-child(3) {
-    grid-area: karma;
-  }
-  main article .card-wrapper .card:nth-child(4) {
-    grid-area: calculator;
-  }
-}
-@media (min-width: 768px) {
   main article .card-wrapper .card:nth-child(1) {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
@@ -216,5 +203,43 @@ main article .card-wrapper .card:nth-child(4) {
     -ms-grid-row: 5;
     -ms-grid-column: 3;
     -ms-grid-column-span: 3;
+  }
+}
+@media (min-width: 1440px) {
+  main article .card-wrapper {
+    display: -ms-grid;
+    display: grid;
+    gap: var(--spacing-400);
+    -ms-grid-columns: 1fr var(--spacing-400) 1fr var(--spacing-400) 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: auto var(--spacing-400) auto var(--spacing-400) auto var(--spacing-400) auto;
+        grid-template-areas: ". team-builder ." "supervisor team-builder calculator" "supervisor karma calculator" ". karma .";
+  }
+  main article .card-wrapper .card {
+    min-width: 350px;
+  }
+  main article .card-wrapper .card:nth-child(1) {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  main article .card-wrapper .card:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+  main article .card-wrapper .card:nth-child(3) {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+  main article .card-wrapper .card:nth-child(4) {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 1;
   }
 }
