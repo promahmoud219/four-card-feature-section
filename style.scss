@@ -39,6 +39,7 @@ main{
 
         span:nth-child(1){
             @include text-preset(2-mobile);
+            display: block;
         }
         
         span:nth-child(2){
@@ -133,8 +134,6 @@ main{
                 }
                 .card:nth-child(4){
                     grid-area: calculator;
-                    
-// 
                 }
             }
         }

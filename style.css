@@ -63,15 +63,16 @@ main article .title-wrapper {
 }
 main article span:nth-child(1) {
   font-family: "Poppins", sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.4;
   letter-spacing: 0.25px;
   font-weight: 200;
   color: var(--color-grey-500);
+  display: block;
 }
 main article span:nth-child(2) {
   font-family: "Poppins", sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.4;
   letter-spacing: 0.25px;
   font-weight: 600;
@@ -80,7 +81,7 @@ main article span:nth-child(2) {
 @media (min-width: 768px) {
   main article span:nth-child(1) {
     font-family: "Poppins", sans-serif;
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 1.4;
     letter-spacing: 0.25px;
     font-weight: 200;
@@ -89,7 +90,7 @@ main article span:nth-child(2) {
   }
   main article span:nth-child(2) {
     font-family: "Poppins", sans-serif;
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 1.4;
     letter-spacing: 0.25px;
     font-weight: 600;
@@ -98,7 +99,7 @@ main article span:nth-child(2) {
 }
 main article p {
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 0.938rem;
   line-height: 1.4;
   letter-spacing: 0;
   font-weight: 400;
@@ -140,7 +141,7 @@ main article .card-wrapper .card .title {
 }
 main article .card-wrapper .card .title h2 {
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.35;
   letter-spacing: 0;
   font-weight: 600;
@@ -148,7 +149,7 @@ main article .card-wrapper .card .title h2 {
 }
 main article .card-wrapper .card .title p {
   font-family: "Poppins", sans-serif;
-  font-size: 13px;
+  font-size: 0.813rem;
   line-height: 1.6;
   letter-spacing: 0;
   font-weight: 400;
